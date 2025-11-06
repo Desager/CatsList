@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/mainListFragment">
+
+    <fragment
+        android:id="@+id/mainListFragment"
+        android:name="com.desager.catslist.ui.screens.main_list.MainListFragment"
+        android:label="@string/main_fragment"
+        tools:layout="@layout/fragment_main_list">
+        <action
+            android:id="@+id/action_main_to_details"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouriteListFragment"
+        android:name="com.desager.catslist.ui.screens.favourite_list.FavouriteListFragment"
+        android:label="@string/favourite_fragment"
+        tools:layout="@layout/fragment_favourite_list">
+        <action
+            android:id="@+id/action_favourite_to_details"
+            app:destination="@id/detailsFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.desager.catslist.ui.screens.cat_details.CatDetailsFragment"
+        android:label="@string/details_fragment"
+        tools:layout="@layout/fragment_cat_details"/>
+
+</navigation>
