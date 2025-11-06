@@ -1,6 +1,7 @@
 package com.desager.catslist.domain.model
 
-data class BreedsModel(
+data class BreedModel(
+    val id: String,
     val name: String,
     val temperament: String,
     val origin: String,

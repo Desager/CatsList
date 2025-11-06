@@ -13,6 +13,7 @@ data class CatDto (
 
     fun toModel(): CatModel {
         return CatModel(
+            id = id,
             url = url,
             breeds = breeds.map { it.toModel() }
         )

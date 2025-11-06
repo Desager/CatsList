@@ -1,6 +1,9 @@
 package com.desager.catslist
 
 import android.app.Application
+import androidx.room.Room
+import com.desager.catslist.data.local.CatDatabase
+import com.desager.catslist.data.local.dao.CatsDao
 import com.desager.catslist.data.remote.api.CatsApi
 import com.desager.catslist.data.remote.interceptors.ApiKeyInterceptor
 import okhttp3.OkHttpClient
@@ -12,11 +15,13 @@ import retrofit2.create
 class App : Application() {
 
     lateinit var catsApi: CatsApi
+    lateinit var catsDao: CatsDao
 
     override fun onCreate() {
         super.onCreate()
 
         catsApi = provideApi()
+        catsDao = provideDao()
     }
 
     private fun provideApi(): CatsApi {
@@ -33,5 +38,13 @@ class App : Application() {
             .client(client)
             .build()
             .create()
+    }
+
+    private fun provideDao(): CatsDao {
+        return Room.databaseBuilder(
+            applicationContext,
+            CatDatabase::class.java,
+            "cat.db"
+        ).build().catsDao
     }
 }

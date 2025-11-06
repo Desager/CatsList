@@ -1,6 +1,6 @@
 package com.desager.catslist.data.remote.model
 
-import com.desager.catslist.domain.model.BreedsModel
+import com.desager.catslist.domain.model.BreedModel
 import com.google.gson.annotations.SerializedName
 
 
@@ -44,8 +44,9 @@ data class BreedsDto (
     @SerializedName("reference_image_id") val referenceImageId: String
 ) {
 
-    fun toModel(): BreedsModel {
-        return BreedsModel(
+    fun toModel(): BreedModel {
+        return BreedModel(
+            id = id,
             name = name,
             temperament = temperament,
             origin = origin,
