@@ -3,4 +3,8 @@
     <string name="main_fragment">Main</string>
     <string name="favourite_fragment">Favourite</string>
     <string name="details_fragment">Details</string>
+    <string name="cat_name">Name: %s</string>
+    <string name="cat_temperament">Temperament: %s</string>
+    <string name="cat_origin">Origin: %s</string>
+    <string name="cat_description">Description: %s</string>
 </resources>
