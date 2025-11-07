@@ -4,7 +4,7 @@ import com.desager.catslist.domain.model.BreedModel
 import com.google.gson.annotations.SerializedName
 
 
-data class BreedsDto (
+data class BreedDto (
     @SerializedName("weight") val weight: WeightDto,
     @SerializedName("id") val id: String,
     @SerializedName("name") val name: String,

@@ -6,7 +6,6 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.desager.catslist.domain.model.BreedModel
 
 @Entity(
     foreignKeys = [
@@ -26,29 +25,4 @@ data class BreedEntity(
     val temperament: String,
     val origin: String,
     val description: String
-) {
-
-    fun toModel(): BreedModel {
-        return BreedModel(
-            id = id,
-            name = name,
-            temperament = temperament,
-            origin = origin,
-            description = description
-        )
-    }
-
-    companion object {
-
-        fun fromModel(catId: String, model: BreedModel): BreedEntity {
-            return BreedEntity(
-                id = model.id,
-                catId = catId,
-                name = model.name,
-                temperament = model.temperament,
-                origin = model.origin,
-                description = model.description
-            )
-        }
-    }
-}
+)
