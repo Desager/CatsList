@@ -13,4 +13,9 @@ import com.desager.catslist.data.local.entity.CatEntity
 abstract class CatDatabase: RoomDatabase() {
 
     abstract val catsDao: CatsDao
+
+    companion object {
+
+        const val NAME = "CAT_LIST_DATABASE"
+    }
 }
