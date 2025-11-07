@@ -6,15 +6,9 @@
     android:orientation="vertical"
     tools:context=".ui.screens.main_list.MainListFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MainListFragment" />
-
-    <Button
-        android:id="@+id/button_navigate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GoToDetails"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
