@@ -15,11 +15,16 @@ class DynamicFingerprintAdapter(
 
     override fun onViewAttachedToWindow(holder: BaseViewHolder<ViewBinding, Item>) {
         val pos = holder.bindingAdapterPosition
-        val limit = itemCount - 1
+        val limit = itemCount - LOADING_OFFSET - 1
 
         if (pos >= limit && !isLoading) {
             isLoading = true
             onLoad()
         }
+    }
+
+    companion object {
+
+        private const val LOADING_OFFSET = 1
     }
 }

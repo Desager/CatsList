@@ -33,7 +33,7 @@ class MainListFragment : MviFragment<MainListViewmodel, MainListState, MainListE
         fingerprints = getFingerprints(),
         onLoad = {
             Log.d(TAG, "Adapter onLoad() invoke")
-            viewModel.handleEvent(MainListEvent.LoadCats(5))
+            viewModel.handleEvent(MainListEvent.LoadCats(LOADING_LIMIT))
         }
     )
 
@@ -77,7 +77,7 @@ class MainListFragment : MviFragment<MainListViewmodel, MainListState, MainListE
         }
 
         if (adapter.currentList.isEmpty()) {
-            viewModel.handleEvent(MainListEvent.LoadCats(5))
+            viewModel.handleEvent(MainListEvent.LoadCats(LOADING_LIMIT))
         }
     }
 
@@ -92,5 +92,6 @@ class MainListFragment : MviFragment<MainListViewmodel, MainListState, MainListE
 
     companion object {
         private const val TAG = "MAIN_LIST_FRAGMENT"
+        private const val LOADING_LIMIT = 5
     }
 }
