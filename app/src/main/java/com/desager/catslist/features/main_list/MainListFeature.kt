@@ -22,7 +22,7 @@ class MainListFeature(
     override val _actionFlow = MutableSharedFlow<MainListFeatureAction>()
 
     private val delayedEvent = DelayedEvent<MainListFeatureEvent> {
-        handleEvent(it, stateFlow.value)
+        handleEvent(it)
     }
 
     override val reducer = MainListFeatureReducer()

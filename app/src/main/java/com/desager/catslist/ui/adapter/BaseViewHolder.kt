@@ -1,5 +1,6 @@
 package com.desager.catslist.ui.adapter
 
+import androidx.annotation.CallSuper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.desager.catslist.domain.model.Item
@@ -10,10 +11,12 @@ abstract class BaseViewHolder<out V : ViewBinding, I : Item>(
 
     lateinit var item: I
 
+    @CallSuper
     open fun onBind(item: I) {
         this.item = item
     }
 
+    @CallSuper
     open fun onBind(item: I, payloads: List<Any>) {
         this.item = item
     }

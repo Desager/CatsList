@@ -18,8 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainListViewmodel @Inject constructor(
     repository: CatsRepository,
-) : MviViewModel<MainListState, MainListEvent, MainListAction,
-        MainListFeatureState, MainListFeatureEvent, MainListFeatureAction>() {
+) : MviViewModel<MainListState, MainListEvent, MainListAction, MainListFeatureState, MainListFeatureEvent, MainListFeatureAction>() {
 
     override val _stateFlow = MutableStateFlow(MainListState.default)
     override val _actionFlow = MutableSharedFlow<MainListAction>()
@@ -31,7 +30,10 @@ class MainListViewmodel @Inject constructor(
     }
 
     override fun viewStateToFeatureState(state: MainListState): MainListFeatureState {
-        return feature.stateFlow.value
+        return MainListFeatureState(
+            isLoading = state.isLoading,
+            cats = state.cats
+        )
     }
 
     override fun featureStateToViewState(state: MainListFeatureState): MainListState {

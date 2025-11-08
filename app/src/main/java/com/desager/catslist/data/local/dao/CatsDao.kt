@@ -15,7 +15,7 @@ interface CatsDao {
 
     @Transaction
     @Query("SELECT * FROM catentity")
-    fun getCatsWithBreeds(): Flow<CatWithBreedsEntity>
+    fun getCatsWithBreeds(): Flow<List<CatWithBreedsEntity>>
 
     @Delete
     suspend fun deleteCat(catEntity: CatEntity)

@@ -16,9 +16,9 @@ class CatFingerprint(
     private val onClick: (CatModel) -> Unit
 ) : ItemFingerprint<ItemCatBinding, CatModel> {
 
-    override fun isRelativeItem(item: Item): Boolean = item is CatModel
+    override fun isRelativeItem(item: Item) = item is CatModel
 
-    override fun getLayoutId(): Int = R.layout.item_cat
+    override fun getLayoutId() = R.layout.item_cat
 
     override fun getViewHolder(
         layoutInflater: LayoutInflater,
@@ -28,7 +28,7 @@ class CatFingerprint(
         return CatViewHolder(binding, onClick)
     }
 
-    override fun getDiffUtil(): DiffUtil.ItemCallback<CatModel> = diffUtil
+    override fun getDiffUtil() = diffUtil
 
     private val diffUtil = object : DiffUtil.ItemCallback<CatModel>() {
 

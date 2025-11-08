@@ -50,7 +50,8 @@ class MainListFragment : MviFragment<MainListViewmodel, MainListState, MainListE
         when(action) {
             is MainListAction.NavigateToDetails -> {
                 Log.d(TAG, "Navigating to CatDetailsFragment")
-                navController.navigate(R.id.action_main_to_details)
+                val direction = MainListFragmentDirections.actionMainToDetails(action.model)
+                navController.navigate(direction)
             }
         }
     }

@@ -52,8 +52,13 @@ abstract class MviViewModel<
 
     fun handleEvent(event: VE) {
         val featureEvent = viewEventToFeatureEvent(event) ?: return
-        val featureState = viewStateToFeatureState(stateFlow.value)
 
-        feature.handleEvent(featureEvent, featureState)
+        feature.handleEvent(featureEvent)
+    }
+
+    fun handleState(state: VS) {
+        val featureState = viewStateToFeatureState(state)
+
+        feature.handleState(featureState)
     }
 }

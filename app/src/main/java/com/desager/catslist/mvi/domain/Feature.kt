@@ -44,9 +44,14 @@ abstract class Feature<S : FeatureState, E : FeatureEvent, A : FeatureAction>(
         }
     }
 
-    fun handleEvent(event: E, state: S) {
+    fun handleEvent(event: E) {
         coroutineScope.launch {
             eventFlow.emit(event)
+        }
+    }
+
+    fun handleState(state: S) {
+        coroutineScope.launch {
             _stateFlow.emit(state)
         }
     }

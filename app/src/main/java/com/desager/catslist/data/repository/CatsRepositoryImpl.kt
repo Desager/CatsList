@@ -27,9 +27,9 @@ class CatsRepositoryImpl(
         }
     }
 
-    override suspend fun getFavouriteCats(): Flow<CatModel> {
+    override suspend fun getFavouriteCats(): Flow<List<CatModel>> {
         return withContext(Dispatchers.IO) {
-            dao.getCatsWithBreeds().map(catModelMapper::map)
+            dao.getCatsWithBreeds().map { it.map(catModelMapper::map) }
         }
     }
 

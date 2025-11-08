@@ -7,7 +7,7 @@ interface CatsRepository {
 
     suspend fun loadCats(limit: Int): List<CatModel>
 
-    suspend fun getFavouriteCats(): Flow<CatModel>
+    suspend fun getFavouriteCats(): Flow<List<CatModel>>
 
     suspend fun deleteFavouriteCat(model: CatModel)
 

@@ -28,6 +28,10 @@
         android:id="@+id/detailsFragment"
         android:name="com.desager.catslist.ui.screens.cat_details.CatDetailsFragment"
         android:label="@string/details_fragment"
-        tools:layout="@layout/fragment_cat_details"/>
+        tools:layout="@layout/fragment_cat_details">
+        <argument
+            android:name="catModel"
+            app:argType="com.desager.catslist.domain.model.CatModel" />
+    </fragment>
 
 </navigation>

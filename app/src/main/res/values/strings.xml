@@ -7,4 +7,7 @@
     <string name="cat_temperament">Temperament: %s</string>
     <string name="cat_origin">Origin: %s</string>
     <string name="cat_description">Description: %s</string>
+    <string name="breeds_header">Breeds</string>
+    <string name="like">Like</string>
+    <string name="dislike">Dislike</string>
 </resources>
