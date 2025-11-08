@@ -59,7 +59,7 @@ class CatViewHolder(
         super.onBind(item)
 
         with(binding) {
-            val context = binding.root.context
+            val context = root.context
             val breed = item.breeds.firstOrNull() ?: return
 
             Glide.with(root)

@@ -1,6 +1,7 @@
 ### Stack
 
 - Kotlin
+- Glide
 - MVI Architecture
 - Coroutines
 - Coroutines Flow
