@@ -19,6 +19,7 @@ import com.desager.catslist.ui.screens.main_list.action.MainListAction
 import com.desager.catslist.ui.screens.main_list.adapter.DynamicFingerprintAdapter
 import com.desager.catslist.ui.screens.main_list.event.MainListEvent
 import com.desager.catslist.ui.screens.main_list.state.MainListState
+import com.desager.catslist.ui.util.toUiModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,7 +51,7 @@ class MainListFragment : MviFragment<MainListViewmodel, MainListState, MainListE
         when(action) {
             is MainListAction.NavigateToDetails -> {
                 Log.d(TAG, "Navigating to CatDetailsFragment")
-                val direction = MainListFragmentDirections.actionMainToDetails(action.model)
+                val direction = MainListFragmentDirections.actionMainToDetails(action.model.toUiModel())
                 navController.navigate(direction)
             }
         }

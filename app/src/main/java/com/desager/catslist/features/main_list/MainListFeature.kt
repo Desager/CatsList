@@ -27,7 +27,7 @@ class MainListFeature(
 
     override val reducer = MainListFeatureReducer()
     override val actors = setOf(
-        LoadCatsActor(repository, coroutineScope,delayedEvent)
+        LoadCatsActor(repository, coroutineScope, delayedEvent)
     )
 
     init {

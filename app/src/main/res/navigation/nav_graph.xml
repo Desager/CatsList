@@ -31,7 +31,7 @@
         tools:layout="@layout/fragment_cat_details">
         <argument
             android:name="catModel"
-            app:argType="com.desager.catslist.domain.model.CatModel" />
+            app:argType="com.desager.catslist.ui.model.CatUiModel" />
     </fragment>
 
 </navigation>

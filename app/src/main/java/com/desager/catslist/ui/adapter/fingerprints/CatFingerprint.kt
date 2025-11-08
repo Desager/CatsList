@@ -60,7 +60,7 @@ class CatViewHolder(
 
         with(binding) {
             val context = binding.root.context
-            val breed = item.breeds.first()
+            val breed = item.breeds.firstOrNull() ?: return
 
             Glide.with(root)
                 .load(item.url)

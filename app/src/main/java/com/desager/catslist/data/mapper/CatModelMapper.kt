@@ -20,7 +20,7 @@ class CatModelMapperImpl(
             id = entity.cat.id,
             url = entity.cat.url,
             breeds = entity.breeds.map { breedModelMapper.map((it)) },
-            isLiked = false
+            isLiked = true
         )
     }
 
@@ -29,7 +29,7 @@ class CatModelMapperImpl(
             id = dto.id,
             url = dto.url,
             breeds = dto.breeds.map { breedModelMapper.map(it) },
-            isLiked = true
+            isLiked = false
         )
     }
 }

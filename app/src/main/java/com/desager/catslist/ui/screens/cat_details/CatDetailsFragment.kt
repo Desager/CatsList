@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +21,7 @@ import com.desager.catslist.ui.adapter.fingerprints.BreedFingerprint
 import com.desager.catslist.ui.screens.cat_details.action.CatDetailsAction
 import com.desager.catslist.ui.screens.cat_details.event.CatDetailsEvent
 import com.desager.catslist.ui.screens.cat_details.state.CatDetailsState
+import com.desager.catslist.ui.util.toDomainModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,7 +36,6 @@ class CatDetailsFragment : MviFragment<CatDetailsViewmodel, CatDetailsState, Cat
         fingerprints = getFingerprints()
     )
 
-    private val navController by lazy { findNavController() }
     private val args: CatDetailsFragmentArgs by navArgs()
 
     override fun renderState(state: CatDetailsState) {
@@ -55,13 +54,13 @@ class CatDetailsFragment : MviFragment<CatDetailsViewmodel, CatDetailsState, Cat
                 .into(image)
 
             if (catModel.isLiked) {
-                likeButton.text = getString(R.string.like)
-                val drawable = resources.getDrawable(R.drawable.thumbs_up, requireContext().theme)
+                likeButton.text = getString(R.string.dislike)
+                val drawable = resources.getDrawable(R.drawable.thumbs_down, requireContext().theme)
                 drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
                 likeButton.setCompoundDrawables(drawable, null, null, null)
             } else {
-                likeButton.text = getString(R.string.dislike)
-                val drawable = resources.getDrawable(R.drawable.thumbs_down, requireContext().theme)
+                likeButton.text = getString(R.string.like)
+                val drawable = resources.getDrawable(R.drawable.thumbs_up, requireContext().theme)
                 drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
                 likeButton.setCompoundDrawables(drawable, null, null, null)
             }
@@ -91,7 +90,7 @@ class CatDetailsFragment : MviFragment<CatDetailsViewmodel, CatDetailsState, Cat
             addItemDecoration(dividerItemDecoration)
         }
 
-        val cat = args.catModel
+        val cat = args.catModel.toDomainModel()
         viewModel.handleState(
             state = CatDetailsState(
                 catModel = cat

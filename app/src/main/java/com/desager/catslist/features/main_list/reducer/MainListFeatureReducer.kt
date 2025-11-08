@@ -32,6 +32,6 @@ class MainListFeatureReducer : Reducer<MainListFeatureState, MainListFeatureEven
             else -> Unit
         }
 
-        return Pair(newState, newAction)
+        return newState to newAction
     }
 }
