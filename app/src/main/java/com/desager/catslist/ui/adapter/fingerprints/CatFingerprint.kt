@@ -1,6 +1,7 @@
 package com.desager.catslist.ui.adapter.fingerprints
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
@@ -74,12 +75,31 @@ class CatViewHolder(
                 .diskCacheStrategy(diskCacheStrategy)
                 .into(image)
 
-            val breed = item.breeds.firstOrNull() ?: return
+            val breed = item.breeds.firstOrNull()
 
-            name.text = context.getString(R.string.cat_name, breed.name)
-            temperament.text = context.getString(R.string.cat_temperament, breed.temperament)
-            origin.text = context.getString(R.string.cat_origin, breed.origin)
-            description.text = context.getString(R.string.cat_description, breed.description)
+            if (breed != null) {
+                name.apply {
+                    visibility = View.VISIBLE
+                    text = context.getString(R.string.cat_name, breed.name)
+                }
+                temperament.apply {
+                    visibility = View.VISIBLE
+                    text = context.getString(R.string.cat_temperament, breed.temperament)
+                }
+                origin.apply {
+                    visibility = View.VISIBLE
+                    text = context.getString(R.string.cat_origin, breed.origin)
+                }
+                description.apply {
+                    visibility = View.VISIBLE
+                    text = context.getString(R.string.cat_description, breed.description)
+                }
+            } else {
+                name.visibility = View.INVISIBLE
+                temperament.visibility = View.INVISIBLE
+                origin.visibility = View.INVISIBLE
+                description.visibility = View.INVISIBLE
+            }
         }
     }
 }

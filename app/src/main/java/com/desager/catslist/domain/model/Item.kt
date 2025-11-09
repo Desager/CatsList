@@ -1,3 +1,5 @@
 package com.desager.catslist.domain.model
 
-interface Item
+interface Item {
+    val id: String
+}
