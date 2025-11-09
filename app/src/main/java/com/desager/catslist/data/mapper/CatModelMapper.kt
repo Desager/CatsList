@@ -28,7 +28,7 @@ class CatModelMapperImpl(
         return CatModel(
             id = dto.id,
             url = dto.url,
-            breeds = dto.breeds.map { breedModelMapper.map(it) },
+            breeds = dto.breeds.map { breedModelMapper.map(it, dto) },
             isLiked = false
         )
     }

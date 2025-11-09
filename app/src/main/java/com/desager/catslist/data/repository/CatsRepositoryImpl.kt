@@ -21,7 +21,7 @@ class CatsRepositoryImpl(
 
     override suspend fun loadCats(limit: Int): List<CatModel> {
         return withContext(Dispatchers.IO) {
-            val result = api.getCats(10, 1)
+            val result = api.getCats(limit, 1)
 
             result.map(catModelMapper::map)
         }

@@ -2,13 +2,14 @@ package com.desager.catslist.data.mapper
 
 import com.desager.catslist.data.local.entity.BreedEntity
 import com.desager.catslist.data.remote.model.BreedDto
+import com.desager.catslist.data.remote.model.CatDto
 import com.desager.catslist.domain.model.BreedModel
 
 interface BreedModelMapper {
 
     fun map(entity: BreedEntity): BreedModel
 
-    fun map(dto: BreedDto): BreedModel
+    fun map(breedDto: BreedDto, catDto: CatDto): BreedModel
 }
 
 class BreedModelMapperImpl : BreedModelMapper {
@@ -23,13 +24,13 @@ class BreedModelMapperImpl : BreedModelMapper {
         )
     }
 
-    override fun map(dto: BreedDto): BreedModel {
+    override fun map(breedDto: BreedDto, catDto: CatDto): BreedModel {
         return BreedModel(
-            id = dto.id,
-            name = dto.name,
-            temperament = dto.temperament,
-            origin = dto.origin,
-            description = dto.description
+            id = "${breedDto.id}_${catDto.id}",
+            name = breedDto.name,
+            temperament = breedDto.temperament,
+            origin = breedDto.origin,
+            description = breedDto.description
         )
     }
 }

@@ -60,14 +60,22 @@ class CatViewHolder(
 
         with(binding) {
             val context = root.context
-            val breed = item.breeds.firstOrNull() ?: return
+
+            val diskCacheStrategy = if (item.isLiked) {
+                DiskCacheStrategy.ALL
+            } else {
+                DiskCacheStrategy.NONE
+            }
 
             Glide.with(root)
                 .load(item.url)
                 .centerCrop()
                 .placeholder(R.drawable.cat_placeholder)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .diskCacheStrategy(diskCacheStrategy)
                 .into(image)
+
+            val breed = item.breeds.firstOrNull() ?: return
+
             name.text = context.getString(R.string.cat_name, breed.name)
             temperament.text = context.getString(R.string.cat_temperament, breed.temperament)
             origin.text = context.getString(R.string.cat_origin, breed.origin)
